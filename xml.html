@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xml challenge</title>
+</head>
+<body>
+    <p id="XML_challange"></p>
+    <script>
+        var XML_Parser, XML_Document;
+
+        var Movie="<movie>" +
+        "<title>Grandma\'s Boy </title>"+
+        "<director>Directed by Nicholaus Goossen, </director>"+
+        "<starring>Starring Allen Covert and Nick Swardson, </starring>"+
+        "<year>in the year 2006.</year>"+
+        "</movie>";
+
+        XML_Parser = new DOMParser();
+        XML_Document = XML_Parser.parseFromString(Movie,"text/xml");
+        document.getElementById("XML_challange").innerHTML=
+        XML_Document.getElementsByTagName("title")[0].childNodes[0].nodeValue+
+        XML_Document.getElementsByTagName("director")[0].childNodes[0].nodeValue+
+        XML_Document.getElementsByTagName("starring")[0].childNodes[0].nodeValue+
+        XML_Document.getElementsByTagName("year")[0].childNodes[0].nodeValue;
+    </script>
+    
+</body>
+</html>
